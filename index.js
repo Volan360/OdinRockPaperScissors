@@ -18,23 +18,58 @@ function computerPlay(){
 function playRound(ps, cs){
     ps = ps.toUpperCase();
     cs = cs.toUpperCase();
-    console.log(ps);
-    console.log(cs);
     if(cs === ps)
     {
-        return "This one's a tie!"
+        return "tie"
     }
     else if(ps == "ROCK" && cs == "SCISSORS" 
         || ps == "PAPER" && cs == "ROCK"
         || ps == "SCISSORS" && cs == "PAPER")
         {
-            return "You Win! " + ps + " beats " + cs;
+            return "player";
         }
     else{
-        return "You Lose! " + cs + " beats " + ps;
+        return "computer";
     }
 };
 
-const playerSelection = "rock";
-const computerSelection = computerPlay();
-console.log(playRound(playerSelection, computerSelection));
+function game(){
+    player_score = 0;
+    computer_score = 0;
+    for (let i = 0; i< 5; i++){
+        cs = computerPlay();
+        ps = "";
+        while (!["ROCK", "PAPER", "SCISSORS"].includes(ps.toUpperCase())){
+            ps = window.prompt("Make your move! Rock, Paper, or Scissors?")
+        }
+        ps = ps.toUpperCase()
+        console.log("Player: " + ps);
+        console.log("Computer: " + cs);
+        if(playRound(ps,cs) === "player")
+        {
+            player_score += 1
+            console.log("You win this round! " + ps + " beats " + cs);
+        }
+        else if(playRound(ps, cs) == "tie")
+        {
+            console.log("A tie! You're operating on the same wavelength");
+        }
+        else{
+            computer_score += 1;
+            console.log("You lose this round! " + cs + " beats " + ps);
+        }
+        console.log("Player score: " + player_score);
+        console.log("Computer score: " + computer_score);
+    }
+    if(player_score > computer_score){
+        console.log("You Win! Verily humanity reigns supreme!")
+    }
+    else if(player_score == computer_score)
+    {
+        console.log("A tie! It seems you've met your match!")
+    }
+    else{
+        console.log("You Lose! Praise our digital overlords!")
+    }
+};
+game()
