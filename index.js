@@ -72,4 +72,33 @@ function game(){
         console.log("You Lose! Praise our digital overlords!")
     }
 };
-game()
+
+const canvas = document.getElementById("canvas");
+
+function fitToContainer(canvas) {
+    canvas.style["width"] = "100%";
+    canvas.style["height"] = "100%";
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+}
+fitToContainer(canvas);
+const ctx = canvas.getContext("2d")
+// const nate = document.createElement("img")
+// nate.src = 'src/Nate.webp'
+// nate.onload = function () {
+//     let height = nate.height * 6
+//     let width = nate.width * 6
+//     context.drawImage(nate, -50, 10, width, height)
+// }
+
+let char = document.createElement('img')
+char.src = 'src/Charizard.gif'
+char.height = 350
+char.width = 350
+char.style.position = 'absolute'
+char.style.left = '53%'
+char.style.bottom = '55%'
+
+let display = document.getElementById('display')
+char.onload = () => display.appendChild(char)
+//game()
