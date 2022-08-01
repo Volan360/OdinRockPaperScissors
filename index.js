@@ -73,32 +73,23 @@ function game(){
     }
 };
 
-const canvas = document.getElementById("canvas");
-
-function fitToContainer(canvas) {
-    canvas.style["width"] = "100%";
-    canvas.style["height"] = "100%";
-    canvas.width = canvas.offsetWidth;
-    canvas.height = canvas.offsetHeight;
-}
-fitToContainer(canvas);
-const ctx = canvas.getContext("2d")
-// const nate = document.createElement("img")
-// nate.src = 'src/Nate.webp'
-// nate.onload = function () {
-//     let height = nate.height * 6
-//     let width = nate.width * 6
-//     context.drawImage(nate, -50, 10, width, height)
-// }
-
 let char = document.createElement('img')
 char.src = 'src/Charizard.gif'
-char.height = 350
-char.width = 350
+char.height = 230
+char.width = 230
 char.style.position = 'absolute'
-char.style.left = '53%'
-char.style.bottom = '55%'
+char.style.left = '55%'
+char.style.bottom = '60%'
+
+let deox = document.createElement('img')
+deox.src = 'src/Deoxys-speed.gif'
+deox.height = 300
+deox.width = 300
+deox.style.position = 'absolute'
+deox.style.left = '30%'
+deox.style.bottom = '40%'
 
 let display = document.getElementById('display')
 char.onload = () => display.appendChild(char)
+deox.onload = () => display.appendChild(deox)
 //game()
