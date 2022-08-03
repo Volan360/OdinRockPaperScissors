@@ -73,23 +73,36 @@ function game(){
     }
 };
 
-let char = document.createElement('img')
-char.src = 'src/Charizard.gif'
-char.height = 230
-char.width = 230
-char.style.position = 'absolute'
-char.style.left = '55%'
-char.style.bottom = '60%'
+function generateUrl() {
+    base_url = 'src/enemyImg/MONS_'
+    number = Math.floor(Math.random() * 8639)
+    number = number.toString()
+    number = number.padStart(5, '0')
+    return base_url + number + '.PNG'
+}
 
-let deox = document.createElement('img')
-deox.src = 'src/Deoxys-speed.gif'
-deox.height = 300
-deox.width = 300
-deox.style.position = 'absolute'
-deox.style.left = '30%'
-deox.style.bottom = '40%'
+let char = document.createElement('img')
+char.src = generateUrl()
+// char.src = 'src/enemyImg/MONS_08291.PNG'
+char.style.position = 'absolute'
+char.style.left = '38%'
+char.style.bottom = '50%'
+
+
+// let deox = document.createElement('img')
+// deox.src = 'src/Deoxys-speed.gif'
+// deox.height = 300
+// deox.width = 300
+// deox.style.position = 'absolute'
+// deox.style.left = '30%'
+// deox.style.bottom = '40%'
 
 let display = document.getElementById('display')
+char.onerror = function () {
+
+    char.src = generateUrl()
+    // char.src = 'src/enemyImg/MONS_08291.PNG'
+}
 char.onload = () => display.appendChild(char)
-deox.onload = () => display.appendChild(deox)
+// deox.onload = () => display.appendChild(deox)
 //game()
