@@ -80,29 +80,32 @@ function generateUrl() {
     number = number.padStart(5, '0')
     return base_url + number + '.PNG'
 }
-
+let musicBtn = document.getElementById('start')
+let music = document.getElementById('music')
+musicBtn.onclick = function () {
+    if(music.paused){
+        music.play()
+        musicBtn.textContent = 'Pause'
+    }
+    else{
+        music.pause()
+        musicBtn.textContent = 'Play'
+    }
+}
 let char = document.createElement('img')
 char.src = generateUrl()
+//blackbird image for debugging
 // char.src = 'src/enemyImg/MONS_08291.PNG'
-char.style.position = 'absolute'
-char.style.left = '38%'
-char.style.bottom = '50%'
-
-
-// let deox = document.createElement('img')
-// deox.src = 'src/Deoxys-speed.gif'
-// deox.height = 300
-// deox.width = 300
-// deox.style.position = 'absolute'
-// deox.style.left = '30%'
-// deox.style.bottom = '40%'
+char.style.marginLeft = 'auto'
+char.style.marginRight = 'auto'
+// char.style.marginBottom = '5%'
 
 let display = document.getElementById('display')
-char.onerror = function () {
-
-    char.src = generateUrl()
-    // char.src = 'src/enemyImg/MONS_08291.PNG'
+char.onerror = () => char.src = generateUrl()
+char.onload = function () {
+    char.height = char.height * 1.15
+    char.width = char.width * 1.15
+    display.appendChild(char)
 }
-char.onload = () => display.appendChild(char)
-// deox.onload = () => display.appendChild(deox)
+
 //game()
