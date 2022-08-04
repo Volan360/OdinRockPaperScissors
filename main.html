@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="main.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <audio id="music">
+        <source src="src/boss_theme.mp3" type="audio/mp3" loop="true">
+    </audio>
+
+    <div class="container">
+        <div id="footer">
+            <div id="top">
+                <h1 id = 'playerHealth'></h1>
+                <h1 id = 'enemyHealth'></h1>
+                <div>
+                    <h2 id="descPlayer">Player: Ready</h2>
+                    <h2 id="descEnemy">Enemy: Ready</h2>
+                    <h2 id="descResult">Make Your Move!</h2>
+                </div>
+                <button id="start">Play BGM</button>
+            </div>
+            <div id="bottom">
+                    <button id="ROCK">ROCK</button>
+                    <button id="PAPER">PAPER</button>
+                    <button id="SCISSORS">SCISSORS</button>
+                </div>
+            </div>
+            <div id="display"></div>
+        </div>
+</body>
+</html>
